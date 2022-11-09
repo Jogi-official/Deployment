@@ -35,13 +35,13 @@ def predict_species(data:BankNote):
     # print(classifier.predict([[balance , AnnualSalary , Employed]]))
     print("Hello")
 
-    Income = (data['Income'] - 10310)/(9999938-10310)
-    Age = (data['Age'] - 21)/(79-21)
-    Experience = (data['Experience']) /20
+    Income = data['Income']
+    Age = data['Age']
+    Experience = data['Experience']
     Married_Single = data['MarriedSingle']
     Car_Ownership  = data['Car_Ownership']
-    CURRENT_JOB_YRS = data['CurrentJob_YRS']/14
-    CURRENT_HOUSE_YRS = (data['CurrentHour_YRS']-10)/14
+    CURRENT_JOB_YRS = data['CurrentJob_YRS']
+    CURRENT_HOUSE_YRS = data['CurrentHour_YRS']
 
 
     prediction = classifier.predict([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS]])
