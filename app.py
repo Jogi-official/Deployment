@@ -11,6 +11,19 @@ import pickle
 app = FastAPI()
 pickle_in = open('classifier_new.pkl' ,'rb')
 classifier = pickle.load(pickle_in)
+df = pd.read_csv('Training Data.csv')
+df.rename(columns={"Married/Single": "Married_Single"}, inplace=True)
+encoder = LabelEncoder()
+df["Married_Single"] = encoder.fit_transform(df["Married_Single"])
+df["Car_Ownership"] = encoder.fit_transform(df["Car_Ownership"])
+df = df.drop(['Id', 'Profession', 'CITY', 'STATE', 'House_Ownership'], axis=1)
+X = df.drop("Risk_Flag", axis=1)
+y = df["Risk_Flag"]
+smote = SMOTE(sampling_strategy='minority')
+X_sm_original, y_sm_original = smote.fit_resample(X, y)
+sc = StandardScaler()
+sc.fit(X_sm_original, y_sm_original)
+
 
 @app.get('/')
 def index():
@@ -26,18 +39,7 @@ def predict_species(data:BankNote):
     data = data.dict()
     print(data)
     print("Hello")
-    df = pd.read_csv('Training Data.csv')
-    df.rename(columns={"Married/Single": "Married_Single"}, inplace=True)
-    encoder = LabelEncoder()
-    df["Married_Single"] = encoder.fit_transform(df["Married_Single"])
-    df["Car_Ownership"] = encoder.fit_transform(df["Car_Ownership"])
-    df = df.drop(['Id', 'Profession', 'CITY', 'STATE', 'House_Ownership'], axis=1)
-    X = df.drop("Risk_Flag", axis=1)
-    y = df["Risk_Flag"]
-    smote = SMOTE(sampling_strategy='minority')
-    X_sm_original, y_sm_original = smote.fit_resample(X, y)
-    sc = StandardScaler()
-    sc.fit(X_sm_original , y_sm_original)
+
 
     # balance = data['balance']
     # # print(balance)
