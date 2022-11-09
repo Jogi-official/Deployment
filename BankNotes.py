@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 
 class BankNote(BaseModel):
-    Income : int
-    Age: int
-    Experience : int
+    Income : float
+    Age: float
+    Experience : float
     Married_Single :int
     Car_Ownership : int
-    CURRENT_JOB_YRS : int
-    CURRENT_HOUSE_YRS :int
+    CURRENT_JOB_YRS : float
+    CURRENT_HOUSE_YRS :float
