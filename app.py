@@ -56,7 +56,7 @@ def predict_species(data:BankNote):
     CURRENT_HOUSE_YRS = data['CurrentHour_YRS']
 
     # sc.transform([Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS ])
-    prediction = classifier.predict([sc.transform([Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS ])])
+    prediction = classifier.predict([[sc.transform([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS ]])]])
     if(prediction[0] == 0):
         prediction = "Not Approved"
     else:
