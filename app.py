@@ -25,16 +25,6 @@ def predict_species(data:BankNote):
     data = data.dict()
     print(data)
     print("Hello")
-
-
-    # balance = data['balance']
-    # # print(balance)
-    # AnnualSalary = data['AnnualSalary']
-    # # print(AnnualSalary)
-    # Employed = data['Employed']
-    # print(classifier.predict([[balance , AnnualSalary , Employed]]))
-    print("Hello")
-
     Income = data['Income']
     Age = data['Age']
     Experience = data['Experience']
