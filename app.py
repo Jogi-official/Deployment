@@ -40,8 +40,8 @@ def predict_species(data:BankNote):
     Experience = data['Experience']
     Married_Single = data['Married_Single']
     Car_Ownership  = data['Car_Ownership']
-    CURRENT_JOB_YRS = data['CurrentJob_YRS']
-    CURRENT_HOUSE_YRS = data['CurrentHour_YRS']
+    CURRENT_JOB_YRS = data['CURRENT_JOB_YRS']
+    CURRENT_HOUSE_YRS = data['CURRENT_HOUSE_YRS ']
 
 
     prediction = classifier.predict([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS]])
