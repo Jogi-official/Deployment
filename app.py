@@ -38,7 +38,7 @@ def predict_species(data:BankNote):
     Income = data['Income']
     Age = data['Age']
     Experience = data['Experience']
-    Married_Single = data['MarriedSingle']
+    Married_Single = data['Married_Single']
     Car_Ownership  = data['Car_Ownership']
     CURRENT_JOB_YRS = data['CurrentJob_YRS']
     CURRENT_HOUSE_YRS = data['CurrentHour_YRS']
