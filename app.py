@@ -33,15 +33,12 @@ def predict_species(data:BankNote):
     CURRENT_JOB_YRS = data['CURRENT_JOB_YRS']/14
     CURRENT_HOUSE_YRS = (data['CURRENT_HOUSE_YRS']-10)/(14-10)
 
-    if(Income < 400000 or Age < 21 or Experience < 2 or CURRENT_JOB_YRS < 2 or  CURRENT_HOUSE_YRS < 10 ):
-        prediction = "Not Approved"
-    else:
-        pred= classifier.predict([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS]])
 
-        if(pred[0] == 0):
-            prediction = "Approved"
-        else:
-            prediction = "Not Approved"
+    prediction = classifier.predict([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS]])
+    if(prediction[0] == 0):
+        prediction = "Approved"
+    else:
+        prediction = "Not Approved"
     return {
         "prediction": prediction
     }
