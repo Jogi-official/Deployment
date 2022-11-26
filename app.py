@@ -35,10 +35,7 @@ def predict_species(data:BankNote):
 
 
     prediction = classifier.predict([[Income , Age , Experience , Married_Single , Car_Ownership , CURRENT_JOB_YRS , CURRENT_HOUSE_YRS]])
-    if(Income < 300000 or Age < 20 ):
-        prediction = "Not Approved"
-
-    elif(prediction[0] == 0):
+    if(prediction[0] == 0):
         prediction = "Approved"
     else:
         prediction = "Not Approved"
